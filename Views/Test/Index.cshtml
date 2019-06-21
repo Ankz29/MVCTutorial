@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+    <tbody>
+        @if (ViewBag.NameList != null)
+        {
+            foreach (var item in ViewBag.NameList)
+            {
+                <tr>
+                    <td>
+                        @item
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
