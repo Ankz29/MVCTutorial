@@ -1,11 +1,12 @@
-﻿@{
+﻿@model IEnumerable<MVCTutorial.Models.Employee>
+@{
     ViewBag.Title = "Index";
     Layout = null;
 }
 
 <h2>Index</h2>
 
-<table>
+@*<table>
     <tr>
         <th>
             Name
@@ -25,4 +26,39 @@
 
         }
     </tbody>
+</table>*@
+
+<table border="1">
+<tr>
+    <th>
+        ID
+    </th>
+    <th>
+        Name
+    </th>
+    <th>
+        Department
+    </th>
+</tr>
+
+<tbody>
+    @if (Model != null)
+        {
+            foreach (var item in Model )
+            {
+                <tr>
+                    <td>
+                        @item.ID
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Department
+                    </td>
+                </tr>
+            }
+
+        }
+</tbody>
 </table>
