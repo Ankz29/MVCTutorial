@@ -23,9 +23,20 @@ namespace MVCTutorial.Controllers
             new Employee(){
                  ID = 4, Name = "Bhaveshawari", Department ="IT"};
 
-            return View(empList);
+            ViewBag.Message = empList;
+
+            ViewData["Message"] = empList;
+
+            TempData["Message"] = "Hello world";
+            TempData.Keep();
+            return View();
             }
             
+
+        public ActionResult SecondPage()
+        {
+            return View();
+        }
 
             //List<string> myList = new List<string>();
             //myList.Add("Ankita");

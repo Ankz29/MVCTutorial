@@ -1,34 +1,82 @@
-﻿@model IEnumerable<MVCTutorial.Models.Employee>
+﻿@model  MVCTutorial.Models.Employee
 @{
     ViewBag.Title = "Index";
     Layout = null;
 }
 
-<h2>Index</h2>
+<h2>Data from view Bag</h2>
 
-@*<table>
+<table>
     <tr>
+        <th>
+            ID
+        </th>
         <th>
             Name
         </th>
+        <th>
+            Department
+        </th>
     </tr>
     <tbody>
-        @if (ViewBag.NameList != null)
-        {
-            foreach (var item in ViewBag.NameList)
+        
+            @foreach (var item in ViewBag.Message)
             {
                 <tr>
                     <td>
-                        @item
+                        @item.ID
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Department
                     </td>
                 </tr>
             }
 
-        }
+        
     </tbody>
-</table>*@
+</table>
 
-<table border="1">
+<h1> Data from View Data</h1>
+<table>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Department
+        </th>
+    </tr>
+    <tbody>
+
+        @foreach (var item in ViewData["Message"] as List<MVCTutorial.Models.Employee>)
+        {
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Department
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<a href="/Test/SecondPage"> go to Second Page</a>
+
+
+@*<table border="1">
 <tr>
     <th>
         ID
@@ -61,4 +109,4 @@
 
         }
 </tbody>
-</table>
+</table>*@
